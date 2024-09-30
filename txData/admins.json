@@ -1,0 +1,21 @@
+[
+  {
+    "name": "PedroLuCas874",
+    "master": true,
+    "password_hash": "$2a$11$IiqdeEL9VqSXx.0WXVz.BOHpD7ubV9rGAi4rJXLNd5wi8f42j5.V.",
+    "providers": {
+      "citizenfx": {
+        "id": "PedroLuCas874",
+        "identifier": "fivem:825440",
+        "data": {
+          "sub": "0cf68072ccd8472a98ed7c5c738f8e3f",
+          "nameid": "https://forum.cfx.re/internal/user/825440",
+          "name": "PedroLuCas874",
+          "picture": "https://forum.cfx.re/user_avatar/forum.cfx.re/pedrolucas874/256/3357719_2.png",
+          "profile": "https://forum.cfx.re/u/PedroLuCas874"
+        }
+      }
+    },
+    "permissions": []
+  }
+]
