@@ -1,14 +1,14 @@
 Config = {}
-Config.Interior = vector3(-814.89, 181.95, 76.85) -- Interior to load where characters are previewed
-Config.DefaultSpawn = vector3(-1035.71, -2731.87, 12.86) -- Default spawn coords if you have start apartments disabled
-Config.PedCoords = vector4(-813.97, 176.22, 76.74, -7.5) -- Create preview ped at these coordinates
-Config.HiddenCoords = vector4(-812.23, 182.54, 76.74, 156.5) -- Hides your actual ped while you are in selection
-Config.CamCoords = vector4(-813.46, 178.95, 76.85, 174.5) -- Camera coordinates for character preview screen
-Config.EnableDeleteButton = true -- Define if the player can delete the character or not
-Config.customNationality = false -- Defines if Nationality input is custom of blocked to the list of Countries
-Config.SkipSelection = false -- Skip the spawn selection and spawns the player at the last location
+Config.Interior = vector3(-845.35, -232.11, 61.02) -- Interior a ser carregado onde os personagens são visualizados
+Config.DefaultSpawn = vector3(-1035.71, -2731.87, 12.86) -- Coordenadas padrão de spawn se você tiver os apartamentos iniciais desativados
+Config.PedCoords = vector4(-844.17, -231.81, 61.02, 56.47) -- Cria o ped de visualização nessas coordenadas
+Config.HiddenCoords = vector4(-850.24, -234.73, 61.02, 0.07) -- Esconde seu ped real enquanto você está na seleção
+Config.CamCoords = vector4(-846.09, -230.64, 61.02, 240.6) -- Coordenadas da câmera para a tela de visualização do personagem
+Config.EnableDeleteButton = true -- Define se o jogador pode deletar o personagem ou não
+Config.customNationality = false -- Define se a nacionalidade é personalizada ou limitada à lista de países
+Config.SkipSelection = false -- Pula a seleção de spawn e coloca o jogador na última localização
 
-Config.DefaultNumberOfCharacters = 5 -- Define maximum amount of default characters (maximum 5 characters defined by default)
-Config.PlayersNumberOfCharacters = { -- Define maximum amount of player characters by rockstar license (you can find this license in your server's database in the player table)
+Config.DefaultNumberOfCharacters = 5 -- Define o número máximo padrão de personagens (máximo de 5 personagens definido por padrão)
+Config.PlayersNumberOfCharacters = { -- Define o número máximo de personagens do jogador por licença rockstar (você pode encontrar essa licença no banco de dados do seu servidor na tabela de jogadores)
     { license = "license:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", numberOfChars = 2 },
 }

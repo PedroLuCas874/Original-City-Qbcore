@@ -1,69 +1,71 @@
 Config = {}
-Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
-Config.MinimalDoctors = 2                                    -- How many players with the ambulance job to prevent the hospital check-in system from being used
-Config.DocCooldown = 1                                       -- Cooldown between doctor calls allowed, in minutes
-Config.WipeInventoryOnRespawn = true                         -- Enable or disable removing all the players items when they respawn at the hospital
-Config.Helicopter = 'polmav'                                 -- Helicopter model that players with the ambulance job can use
-Config.BillCost = 2000                                       -- Price that players are charged for using the hospital check-in system
-Config.DeathTime = 300                                       -- How long the timer is for players to bleed out completely and respawn at the hospital
-Config.ReviveInterval = 360                                  -- How long the timer is for players to revive a player in laststand
-Config.MinimumRevive = 300                                   -- How long the timer is for players to revive a player in laststand
-Config.PainkillerInterval = 60                               -- Set the length of time painkillers last (per one)
-Config.HealthDamage = 5                                      -- Minumum damage done to health before checking for injuries
-Config.ArmorDamage = 5                                       -- Minumum damage done to armor before checking for injuries
-Config.ForceInjury = 35                                      -- Maximum amount of damage a player can take before limb damage & effects are forced to occur
-Config.AlwaysBleedChance = 70                                -- Set the chance out of 100 that if a player is hit with a weapon, that also has a random chance, it will cause bleeding
-Config.MessageTimer = 12                                     -- How long it will take to display limb/bleed message
-Config.AIHealTimer = 20                                      -- How long it will take to be healed after checking in, in seconds
-Config.BleedTickRate = 30                                    -- How much time, in seconds, between bleed ticks
-Config.BleedMovementTick = 10                                -- How many seconds is taken away from the bleed tick rate if the player is walking, jogging, or sprinting
-Config.BleedMovementAdvance = 3                              -- How much time moving while bleeding adds
-Config.BleedTickDamage = 8                                   -- The base damage that is multiplied by bleed level everytime a bleed tick occurs
-Config.FadeOutTimer = 2                                      -- How many bleed ticks occur before fadeout happens
-Config.BlackoutTimer = 10                                    -- How many bleed ticks occur before blacking out
-Config.AdvanceBleedTimer = 10                                -- How many bleed ticks occur before bleed level increases
-Config.HeadInjuryTimer = 30                                  -- How much time, in seconds, do head injury effects chance occur
-Config.ArmInjuryTimer = 30                                   -- How much time, in seconds, do arm injury effects chance occur
-Config.LegInjuryTimer = 15                                   -- How much time, in seconds, do leg injury effects chance occur
-Config.HeadInjuryChance = 25                                 -- The chance, in percent, that head injury side-effects get applied
-Config.LegInjuryChance = {                                   -- The chance, in percent, that leg injury side-effects get applied
+Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Usar interações com qb-target (não mude isso, vá ao seu server.cfg e adicione setr UseTarget true)
+Config.MinimalDoctors = 2                                    -- Quantos jogadores com o emprego de ambulância são necessários para impedir o uso do sistema de check-in do hospital
+Config.DocCooldown = 1                                       -- Tempo de espera entre chamadas de médicos permitidas, em minutos
+Config.WipeInventoryOnRespawn = true                         -- Habilitar ou desabilitar a remoção de todos os itens do jogador ao renascer no hospital
+Config.Helicopter = 'polmav'                                 -- Modelo de helicóptero que jogadores com o emprego de ambulância podem usar
+Config.BillCost = 2000                                       -- Preço que os jogadores pagam por usar o sistema de check-in do hospital
+Config.DeathTime = 300                                       -- Quanto tempo o jogador tem antes de sangrar completamente e renascer no hospital
+Config.ReviveInterval = 360                                  -- Tempo que os jogadores têm para reviver um jogador em estado crítico
+Config.MinimumRevive = 300                                   -- Tempo mínimo para os jogadores reviverem um jogador em estado crítico
+Config.PainkillerInterval = 60                               -- Define o tempo de duração dos analgésicos (por cada um)
+Config.HealthDamage = 5                                      -- Dano mínimo à saúde antes de verificar por lesões
+Config.ArmorDamage = 5                                       -- Dano mínimo à armadura antes de verificar por lesões
+Config.ForceInjury = 35                                      -- Quantidade máxima de dano que um jogador pode sofrer antes de danos nos membros e efeitos serem forçados a ocorrer
+Config.AlwaysBleedChance = 70                                -- Define a chance, em 100, de que se um jogador for atingido por uma arma, isso também causará sangramento
+Config.MessageTimer = 12                                     -- Quanto tempo levará para exibir a mensagem de lesão/sangramento
+Config.AIHealTimer = 20                                      -- Quanto tempo levará para ser curado após fazer o check-in, em segundos
+Config.BleedTickRate = 30                                    -- Tempo, em segundos, entre os "ticks" de sangramento
+Config.BleedMovementTick = 10                                -- Quantos segundos são retirados do tempo do "tick" de sangramento se o jogador estiver andando, correndo, ou sprintando
+Config.BleedMovementAdvance = 3                              -- Quanto tempo andando enquanto sangrando adiciona ao tempo total
+Config.BleedTickDamage = 8                                   -- O dano base que é multiplicado pelo nível de sangramento a cada "tick" de sangramento
+Config.FadeOutTimer = 2                                      -- Quantos "ticks" de sangramento ocorrem antes de começar a desmaiar
+Config.BlackoutTimer = 10                                    -- Quantos "ticks" de sangramento ocorrem antes de desmaiar completamente
+Config.AdvanceBleedTimer = 10                                -- Quantos "ticks" de sangramento ocorrem antes de o nível de sangramento aumentar
+Config.HeadInjuryTimer = 30                                  -- Quanto tempo, em segundos, ocorre a chance de efeitos de lesão na cabeça
+Config.ArmInjuryTimer = 30                                   -- Quanto tempo, em segundos, ocorre a chance de efeitos de lesão no braço
+Config.LegInjuryTimer = 15                                   -- Quanto tempo, em segundos, ocorre a chance de efeitos de lesão na perna
+Config.HeadInjuryChance = 25                                 -- A chance, em porcentagem, de que os efeitos colaterais de lesão na cabeça sejam aplicados
+Config.LegInjuryChance = {                                   -- A chance, em porcentagem, de que os efeitos colaterais de lesão na perna sejam aplicados
     Running = 50,
     Walking = 15
 }
-Config.MajorArmoredBleedChance = 45 -- The chance, in percent, that a player will get a bleed effect when taking heavy damage while wearing armor
-Config.MaxInjuryChanceMulti = 3     -- How many times the HealthDamage value above can divide into damage taken before damage is forced to be applied
-Config.DamageMinorToMajor = 35      -- How much damage would have to be applied for a minor weapon to be considered a major damage event. Put this at 100 if you want to disable it
-Config.AlertShowInfo = 2            -- How many injuries a player must have before being alerted about them
+Config.MajorArmoredBleedChance = 45 -- A chance, em porcentagem, de que o jogador sofra efeito de sangramento ao receber grandes danos enquanto usa armadura
+Config.MaxInjuryChanceMulti = 3     -- Quantas vezes o valor de HealthDamage acima pode dividir no dano recebido antes que o dano seja forçado a ser aplicado
+Config.DamageMinorToMajor = 35      -- Quanto dano deve ser aplicado para que uma arma menor seja considerada um evento de dano maior. Coloque em 100 se você quiser desativar isso
+Config.AlertShowInfo = 2            -- Quantas lesões um jogador deve ter antes de ser alertado sobre elas
 
-Config.Locations = {                -- Edit the various interaction points for players or create new ones
+Config.Locations = {                -- Edite os vários pontos de interação para os jogadores ou crie novos   
     ['checking'] = {
-        vector3(308.19, -595.35, 43.29),
+        vector3(-675.86, 325.93, 83.08),
         vector3(-254.54, 6331.78, 32.43), -- paleto
     },
-    ['duty'] = {
-        vector3(311.18, -599.25, 43.29),
+    ['duty'] = { -- locais para iniciar/encerrar o serviço
+        vector3(-680.56, 342.34, 83.08),
         vector3(-254.88, 6324.5, 32.58), -- paleto
     },
-    ['vehicle'] = {
-        vector4(294.578, -574.761, 43.179, 35.79),
+    ['vehicle'] = { -- locais para retirar veículos
+        vector4(-670.15, 338.51, 78.12, 82.5),
         vector4(-234.28, 6329.16, 32.15, 222.5), -- paleto
     },
-    ['helicopter'] = {
-        vector4(351.58, -587.45, 74.16, 160.5),
+    ['helicopter'] = { -- locais para retirar Heli
+        vector4(-644.86, 315.33, 140.15, 173.01),
+        vector4(-687.08, 321.21, 140.15, 174.8),
+        vector4(-707.91, 320.68, 140.15, 175.45),
         vector4(-475.43, 5988.353, 31.716, 31.34), -- paleto
     },
-    ['roof'] = {
+    ['roof'] = { -- Telhado ?
         vector4(338.5, -583.85, 74.16, 245.5),
     },
-    ['main'] = {
+    ['main'] = { -- Não Sei 
         vector3(298.74, -599.33, 43.29),
     },
-    ['stash'] = {
+    ['stash'] = { -- Não Sei
         vector3(309.78, -596.6, 43.29),
     },
-    ['beds'] = {
-        { coords = vector4(353.1, -584.6, 43.11, 152.08),    taken = false, model = 1631638868 },
-        { coords = vector4(356.79, -585.86, 43.11, 152.08),  taken = false, model = 1631638868 },
+    ['beds'] = { -- Camas
+        { coords = vector4(-662.66, 321.57, 88.8, 172.67),   taken = false, model = -925032225 },
+        { coords = vector4(-660.01, 321.39, 88.87, 174.76),  taken = false, model = -388237781 },
         { coords = vector4(354.12, -593.12, 43.1, 336.32),   taken = false, model = 2117668672 },
         { coords = vector4(350.79, -591.8, 43.1, 336.32),    taken = false, model = 2117668672 },
         { coords = vector4(346.99, -590.48, 43.1, 336.32),   taken = false, model = 2117668672 },
@@ -84,10 +86,10 @@ Config.Locations = {                -- Edit the various interaction points for p
     ['hospital'] = {
         {
             ['name'] = Lang:t('info.pb_hospital'),
-            ['location'] = vector3(308.36, -595.25, 43.28),
+            ['location'] = vector3(-673.8, 325.69, 88.02),
             ['beds'] = {
-                { coords = vector4(353.1, -584.6, 43.11, 152.08),   taken = false, model = 1631638868 },
-                { coords = vector4(356.79, -585.86, 43.11, 152.08), taken = false, model = 1631638868 },
+                { coords = vector4(-662.66, 321.57, 88.8, 172.67),   taken = false, model = -925032225 },
+                { coords = vector4(-660.01, 321.39, 88.87, 174.76), taken = false, model = -388237781 },
                 { coords = vector4(354.12, -593.12, 43.1, 336.32),  taken = false, model = 2117668672 },
                 { coords = vector4(350.79, -591.8, 43.1, 336.32),   taken = false, model = 2117668672 },
                 { coords = vector4(346.99, -590.48, 43.1, 336.32),  taken = false, model = 2117668672 },

@@ -93,6 +93,37 @@ Police Job for QB-Core Framework :police_officer:
 - /takedrivinglicense - Takes the driving license from nearby player.
 - /takedna [id] - Takes a DNA sample from the player.
 
+### Comandos
+
+- /spikestrip - Coloca uma faixa de pregos no chão.
+- /pobject [cone/barreira/sinal/tenda/luz/deletar] - Coloca ou remove um objeto do chão.
+- /cuff - Algemar/Desalgemar o jogador mais próximo.
+- /escort - Escolta o jogador mais próximo.
+- /callsign [texto] - Define um indicativo para o jogador no banco de dados.
+- /clearcasings - Limpa as cápsulas de bala próximas.
+- /jail [id] [tempo] - Envia um jogador para a prisão.
+- /unjail [id] - Libera o jogador da prisão.
+- /clearblood - Limpa as manchas de sangue próximas.
+- /seizecash - Confisca o dinheiro do jogador próximo (coloca em uma bolsa de dinheiro).
+- /sc - Coloca algema leve no jogador mais próximo.
+- /cam [câmera] - Mostra a tela da câmera de segurança selecionada.
+- /flagplate [placa] [motivo] - Marca o veículo.
+- /unflagplate [placa] - Remove a marcação do veículo.
+- /plateinfo [placa] - Exibe se o veículo está marcado ou não.
+- /depot [preço] - Envia o veículo próximo ao pátio. O jogador pode pegá-lo após pagar o custo.
+- /impound - Apreende o veículo próximo permanentemente.
+- /paytow [id] - Faz o pagamento ao motorista do reboque.
+- /paylawyer [id] - Faz o pagamento ao advogado.
+- /radar - Ativa/desativa o radar policial.
+- /911 [mensagem] - Envia um relatório para os serviços de emergência.
+- /911r [id] - Usado para responder aos alertas de emergência.
+- /911a [mensagem] - Envia um relatório anônimo para os serviços de emergência (não informa a localização).
+- /anklet - Coloca um rastreador no jogador próximo.
+- /removeanklet [citizenid] - Remove o rastreador do jogador.
+- /ebutton - Usado para responder a um alerta de emergência.
+- /takedrivinglicense - Retira a carteira de motorista do jogador próximo.
+- /takedna [id] - Coleta uma amostra de DNA do jogador.
+
 ## Installation
 ### Manual
 - Download the script and put it in the `[qb]` directory.
@@ -496,4 +527,325 @@ Config.Items = { -- Items to be displayed on Armory
         }
     }
 }
+```
+```
+Config = {}
+
+Config.Objects = { -- Objetos para serem colocados com /pobject [object]
+    ["cone"] = {model = `prop_roadcone02a`, freeze = false},
+    ["barreira"] = {model = `prop_barrier_work06a`, freeze = true},
+    ["placa"] = {model = `prop_snow_sign_road_06g`, freeze = true},
+    ["tenda"] = {model = `prop_gazebo_03`, freeze = true},
+    ["luz"] = {model = `prop_worklight_03b`, freeze = true},
+}
+
+Config.Locations = {
+   ["duty"] = { -- Marcador de Entrar/Sair de Serviço
+       [1] = vector4(440.085, -974.924, 30.689, 90.654),
+       [2] = vector4(-449.811, 6012.909, 31.815, 90.654),
+   },
+   ["vehicle"] = { -- Marcador de Despacho de Veículos
+       [1] = vector4(448.159, -1017.41, 28.562, 90.654),
+       [2] = vector4(471.13, -1024.05, 28.17, 274.5),
+       [3] = vector4(-455.39, 6002.02, 31.34, 87.93),
+   },
+   ["stash"] = { -- Marcador de Depósito
+       [1] = vector4(453.075, -980.124, 30.889, 90.654),
+   },
+   ["impound"] = { -- Marcador de Veículos Apreendidos
+       [1] = vector4(436.68, -1007.42, 27.32, 180.0),
+       [2] = vector4(-436.14, 5982.63, 31.34, 136.0),
+   },
+   ["helicopter"] = { -- Marcador de Despacho de Helicópteros
+       [1] = vector4(449.168, -981.325, 43.691, 87.234),
+       [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
+   },
+   ["armory"] = { -- Marcador de Armaria
+       [1] = vector4(462.23, -981.12, 30.68, 90.654),
+   },
+   ["trash"] = { -- Marcador de Lixo
+       [1] = vector4(439.0907, -976.746, 30.776, 93.03),
+   },
+   ["fingerprint"] = { -- Marcador de Scanner de Impressões Digitais
+       [1] = vector4(460.9667, -989.180, 24.92, 358.5),
+   },
+   ["evidence"] = { -- Marcador de Armário de Evidências 1
+       [1] = vector4(442.1722, -996.067, 30.689, 187.5),
+   },
+   ["evidence2"] = { -- Marcador de Armário de Evidências 2
+       [1] = vector4(451.7031, -973.232, 30.689, 1.741),
+   },
+   ["evidence3"] = { -- Marcador de Armário de Evidências 3
+       [1] = vector4(455.1456, -985.462, 30.689, 2.854),
+   },
+   ["stations"] = { -- Blips das Delegacias de Polícia
+       [1] = {label = "Delegacia de Polícia", coords = vector4(428.23, -984.28, 29.76, 3.5)},
+       [2] = {label = "Prisão", coords = vector4(1845.903, 2585.873, 45.672, 272.249)},
+       [3] = {label = "Delegacia de Paleto", coords = vector4(-451.55, 6014.25, 31.716, 223.81)},
+   },
+}
+
+Config.ArmoryWhitelist = {} -- Lista Branca de Cidadãos para Armaria (Com Exportação para Outros Scripts)
+
+Config.Helicopter = "POLMAV" -- Modelo do Helicóptero para o Despacho
+
+Config.SecurityCameras = { -- Localizações das Câmeras de Segurança
+    hideradar = false, -- Não alterar
+    cameras = {
+        [1] = {label = "CÂM#1 Banco Pacífico", coords = vector3(257.45, 210.07, 109.08), r = {x = -25.0, y = 0.0, z = 28.05}, canRotate = false, isOnline = true},
+        [2] = {label = "CÂM#2 Banco Pacífico", coords = vector3(232.86, 221.46, 107.83), r = {x = -25.0, y = 0.0, z = -140.91}, canRotate = false, isOnline = true},
+    },
+}
+
+Config.AuthorizedVehicles = { -- Veículos da Polícia e nível exigido
+    -- Nível 0
+    [0] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 1
+    [1] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 2
+    [2] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 3
+    [3] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 4
+    [4] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    }
+}
+
+Config.WhitelistedVehicles = {}
+
+Config.AmmoLabels = { -- Etiquetas para Munições de Armas
+    ["AMMO_PISTOL"] = "Munição de 9x19mm Parabellum",
+    ["AMMO_SMG"] = "Munição de 9x19mm Parabellum",
+    ["AMMO_RIFLE"] = "Munição de 7.62x39mm",
+    ["AMMO_MG"] = "Munição de 7.92x57mm Mauser",
+    ["AMMO_SHOTGUN"] = "Munição de 12-gauge",
+    ["AMMO_SNIPER"] = "Munição de grande calibre",
+}
+
+Config.Radars = { -- Localizações de Radares
+    vector4(-623.44421386719, -823.08361816406, 25.25704574585, 145.0),
+    vector4(-652.44421386719, -854.08361816406, 24.55704574585, 325.0),
+    vector4(1623.0114746094, 1068.9924316406, 80.903594970703, 84.0),
+    vector4(-2604.8994140625, 2996.3391113281, 27.528566360474, 175.0),
+    vector4(2136.65234375, -591.81469726563, 94.272926330566, 318.0),
+    vector4(2117.5764160156, -558.51013183594, 95.683128356934, 158.0),
+    vector4(406.89505004883, -969.06286621094, 29.436267852783, 33.0),
+    vector4(657.315, -218.819, 44.06, 320.0),
+    vector4(2118.287, 6040.027, 50.928, 172.0),
+    vector4(-106.304, -1127.5530, 30.778, 230.0),
+    vector4(-823.3688, -1146.980, 8.0, 300.0),
+}
+
+Config.CarItems = { -- Itens padrão do porta-malas dos veículos da polícia
+    [1] = {
+        name = "heavyarmor",
+        amount = 2,
+        info = {},
+        type = "item",
+        slot = 1,
+    },
+    [2] = {
+        name = "empty_evidence_bag",
+        amount = 10,
+        info = {},
+        type = "item",
+        slot = 2,
+    },
+    [3] = {
+        name = "police_stormram",
+        amount = 1,
+        info = {},
+        type = "item",
+        slot = 3,
+    },
+}
+
+Config.Items = { -- Itens a serem exibidos no arsenal
+    label = "Arsenal da Polícia",
+    slots = 30,
+    items = {
+        [1] = {
+            name = "weapon_pistol",
+            price = 0,
+            amount = 1,
+            info = {
+                serie = "",
+                attachments = {
+                    {component = "COMPONENT_AT_PI_FLSH", label = "Lanterna"},
+                }
+            },
+            type = "weapon",
+            slot = 1,
+            authorizedJobGrades = {0, 1, 2, 3, 4}
+        },
+        [2] = {
+Config.AuthorizedVehicles = { -- Veículos da Polícia e nível exigido
+    -- Nível 0
+    [0] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 1
+    [1] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 2
+    [2] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 3
+    [3] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    },
+    -- Nível 4
+    [4] = {
+        ["police"] = "Carro de Polícia 1",
+        ["police2"] = "Carro de Polícia 2",
+        ["police3"] = "Carro de Polícia 3",
+        ["police4"] = "Carro de Polícia 4",
+        ["policeb"] = "Carro de Polícia 5",
+        ["policet"] = "Carro de Polícia 6",
+        ["sheriff"] = "Carro do Xerife 1",
+        ["sheriff2"] = "Carro do Xerife 2",
+    }
+}
+
+Config.WhitelistedVehicles = {}
+
+Config.AmmoLabels = { -- Etiquetas para Munições de Armas
+    ["AMMO_PISTOL"] = "Munição de 9x19mm Parabellum",
+    ["AMMO_SMG"] = "Munição de 9x19mm Parabellum",
+    ["AMMO_RIFLE"] = "Munição de 7.62x39mm",
+    ["AMMO_MG"] = "Munição de 7.92x57mm Mauser",
+    ["AMMO_SHOTGUN"] = "Munição de 12-gauge",
+    ["AMMO_SNIPER"] = "Munição de grande calibre",
+}
+
+Config.Radars = { -- Localizações de Radares
+    vector4(-623.44421386719, -823.08361816406, 25.25704574585, 145.0),
+    vector4(-652.44421386719, -854.08361816406, 24.55704574585, 325.0),
+    vector4(1623.0114746094, 1068.9924316406, 80.903594970703, 84.0),
+    vector4(-2604.8994140625, 2996.3391113281, 27.528566360474, 175.0),
+    vector4(2136.65234375, -591.81469726563, 94.272926330566, 318.0),
+    vector4(2117.5764160156, -558.51013183594, 95.683128356934, 158.0),
+    vector4(406.89505004883, -969.06286621094, 29.436267852783, 33.0),
+    vector4(657.315, -218.819, 44.06, 320.0),
+    vector4(2118.287, 6040.027, 50.928, 172.0),
+    vector4(-106.304, -1127.5530, 30.778, 230.0),
+    vector4(-823.3688, -1146.980, 8.0, 300.0),
+}
+
+Config.CarItems = { -- Itens padrão do porta-malas dos veículos da polícia
+    [1] = {
+        name = "heavyarmor",
+        amount = 2,
+        info = {},
+        type = "item",
+        slot = 1,
+    },
+    [2] = {
+        name = "empty_evidence_bag",
+        amount = 10,
+        info = {},
+        type = "item",
+        slot = 2,
+    },
+    [3] = {
+        name = "police_stormram",
+        amount = 1,
+        info = {},
+        type = "item",
+        slot = 3,
+    },
+}
+
+Config.Items = { -- Itens a serem exibidos no arsenal
+    label = "Arsenal da Polícia",
+    slots = 30,
+    items = {
+        [1] = {
+            name = "weapon_pistol",
+            price = 0,
+            amount = 1,
+            info = {
+                serie = "",
+                attachments = {
+                    {component = "COMPONENT_AT_PI_FLSH", label = "Lanterna"},
+                }
+            },
+            type = "weapon",
+            slot = 1,
+            authorizedJobGrades = {0, 1, 2, 3, 4}
+        },
 ```

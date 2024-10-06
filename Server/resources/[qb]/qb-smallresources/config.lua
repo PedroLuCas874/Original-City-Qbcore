@@ -1,9 +1,9 @@
 Config = {}
 
-Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
-Config.PauseMapText = ''                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
+Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Usar interações qb-target (não altere isso, vá para o seu server.cfg e adicione `setr UseTarget true` para usar isso, e mude de true para false ou o contrário)
+Config.PauseMapText = ''                                     -- Texto mostrado acima do mapa quando ESC é pressionado. Se deixado em branco, aparecerá 'FiveM'
 Config.HarnessUses = 20
-Config.DamageNeeded = 100.0                                  -- amount of damage till you can push your vehicle. 0-1000
+Config.DamageNeeded = 100.0                                  -- quantidade de dano até que você possa empurrar seu veículo. 0-1000
 Config.Logging = 'discord'                                   -- fivemanage
 
 Config.AFK = {
@@ -12,8 +12,8 @@ Config.AFK = {
         ['admin'] = true,
         ['god'] = true
     },
-    secondsUntilKick = 1000000, -- AFK Kick Time Limit (in seconds)
-    kickInCharMenu = false      -- Set to true if you want to kick players for being AFK even when they are in the character menu.
+    secondsUntilKick = 1000000, -- Tempo limite de kick por AFK (em segundos)
+    kickInCharMenu = false      -- Defina como true se você quiser expulsar jogadores por estarem AFK, mesmo quando estiverem no menu de personagens.
 }
 
 Config.HandsUp = {
@@ -23,28 +23,28 @@ Config.HandsUp = {
 }
 
 Config.Binoculars = {
-    zoomSpeed = 10.0,        -- camera zoom speed
-    storeBinocularsKey = 177 -- backspace by default
+    zoomSpeed = 10.0,        -- velocidade de zoom da câmera
+    storeBinocularsKey = 177 -- tecla padrão para voltar (backspace)
 }
 
 Config.AIResponse = {
-    wantedLevels = false, -- if true, you will recieve wanted levels
-    dispatchServices = {  -- AI dispatch services
-        [1] = false,      -- Police Vehicles
-        [2] = false,      -- Police Helicopters
-        [3] = false,      -- Fire Department Vehicles
-        [4] = false,      -- Swat Vehicles
-        [5] = false,      -- Ambulance Vehicles
-        [6] = false,      -- Police Motorcycles
-        [7] = false,      -- Police Backup
-        [8] = false,      -- Police Roadblocks
-        [9] = false,      -- PoliceAutomobileWaitPulledOver
-        [10] = false,     -- PoliceAutomobileWaitCruising
-        [11] = false,     -- Gang Members
-        [12] = false,     -- Swat Helicopters
-        [13] = false,     -- Police Boats
-        [14] = false,     -- Army Vehicles
-        [15] = false      -- Biker Backup
+    wantedLevels = false, -- se true, você receberá níveis de procurado
+    dispatchServices = {  -- Serviços de despacho de IA
+        [1] = false,      -- Police Vehicles                                 -- Veículos da polícia
+        [2] = false,      -- Police Helicopters                              -- Helicópteros da polícia
+        [3] = false,      -- Fire Department Vehicles                        -- Veículos dos bombeiros
+        [4] = false,      -- Swat Vehicles                                   -- Veículos Swat
+        [5] = false,      -- Ambulance Vehicles                              -- Veículos de ambulância
+        [6] = false,      -- Police Motorcycles                              -- Motocicletas da polícia
+        [7] = false,      -- Police Backup                                   -- Reforço policial
+        [8] = false,      -- Police Roadblocks                               -- Bloqueios policiais
+        [9] = false,      -- PoliceAutomobileWaitPulledOver                  -- Espera de abordagem policial em automóveis
+        [10] = false,     -- PoliceAutomobileWaitCruising                    -- Patrulha policial em automóveis
+        [11] = false,     -- Gang Members                                    -- Membros de gangue
+        [12] = false,     -- Swat Helicopters                                -- Helicópteros Swat
+        [13] = false,     -- Police Boats                                    -- Barcos da polícia
+        [14] = false,     -- Army Vehicles                                   -- Veículos do exército
+        [15] = false      -- Biker Backup                                    -- Reforço de motoqueiros
     }
 }
 
@@ -227,27 +227,27 @@ Config.BlacklistedPeds = {
     [`s_m_y_hwaycop_01`] = true
 }
 
-Config.Objects = { -- for object removal
+Config.Objects = { -- para remoção de objetos
     { coords = vector3(266.09, -349.35, 44.74), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02b' },
     { coords = vector3(285.28, -355.78, 45.13), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02a' },
 }
 
--- You may add more than 2 selections and it will bring up a menu for the player to select which floor be sure to label each section though
+-- Você pode adicionar mais de 2 seleções e isso trará um menu para o jogador selecionar qual andar, mas certifique-se de rotular cada seção
 Config.Teleports = {
-    [1] = {                   -- Elevator @ labs
-        [1] = {               -- up
+    [1] = {                   -- Elevador @ laboratórios
+        [1] = {               -- subir
             poly = { coords = vector3(3540.74, 3675.59, 20.99), heading = 167.5, length = 2, width = 2 },
-            allowVeh = false, -- whether or not to allow use in vehicle
-            label = false     -- set this to a string for a custom label or leave it false to keep the default. if more than 2 options, label all options
+            allowVeh = false, -- permitir ou não o uso em veículos
+            label = false     -- defina isso como uma string para um rótulo personalizado ou deixe falso para manter o padrão. Se houver mais de 2 opções, rotule todas as opções
 
         },
-        [2] = { -- down
+        [2] = { -- descer
             poly = { coords = vector3(3540.74, 3675.59, 28.11), heading = 172.5, length = 2, width = 2 },
             allowVeh = false,
             label = false
         }
     },
-    [2] = { --Coke Processing Enter/Exit
+    [2] = { -- Entrada/Saída de Processamento de Cocaína
         [1] = {
             poly = { coords = vector3(909.49, -1589.22, 30.51), heading = 92.24, length = 2, width = 2 },
             allowVeh = false,
@@ -258,12 +258,25 @@ Config.Teleports = {
             allowVeh = false,
             label = '[E] Leave'
         }
-    }
+    },
+    [3] = {                   -- Elevador @ Hospital
+        [1] = {               -- subir
+            poly = { coords = vector3(3540.74, 3675.59, 20.99), heading = 167.5, length = 2, width = 2 },
+            allowVeh = false, -- permitir ou não o uso em veículos
+            label = false     -- defina isso como uma string para um rótulo personalizado ou deixe falso para manter o padrão. Se houver mais de 2 opções, rotule todas as opções
+
+        },
+        [2] = { -- descer
+            poly = { coords = vector3(3540.74, 3675.59, 28.11), heading = 172.5, length = 2, width = 2 },
+            allowVeh = false,
+            label = false
+        }
+    },    
 }
 
 Config.CarWash = {
-    dirtLevel = 0.1,                                                                                   -- threshold for the dirt level to be counted as dirty
-    defaultPrice = 20,                                                                                 -- default price for the carwash
+    dirtLevel = 0.1,                                                                                   -- nível de sujeira necessário para ser considerado sujo
+    defaultPrice = 20,                                                                                 -- preço padrão para o lava-rápido
     locations = {
         [1] = { coords = vector3(174.81, -1736.77, 28.87), length = 7.0, width = 8.8, heading = 359 }, -- South Los Santos Carson Avenue
         [2] = { coords = vector3(25.2, -1391.98, 28.91), length = 6.6, width = 8.2, heading = 0 },     -- South Los Santos Innocence Boulevard

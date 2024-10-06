@@ -1,0 +1,23 @@
+
+================================================================
+======== txAdmin v6.0.2 atop fxserver 7290 Starting - 03/10/2024 15:20:07
+================================================================
+
+================================================================
+======== Log Rotated - 03/10/2024 15:20:07                      
+================================================================
+[15:21:45][PedroLuCas874] logged in via in-game ui
+[15:25:25][PedroLuCas874] logged in from 127.0.0.1 via citizenfx
+[15:25:26][PedroLuCas874] logged in via in-game ui
+[15:25:39][PedroLuCas874] executed "ensure "qb-spawn""
+[15:25:46][PedroLuCas874] executed "ensure "qb-multicharacter""
+[15:25:52][PedroLuCas874] executed "refresh"
+[15:27:00][PedroLuCas874] executed "ensure "qb-multicharacter""
+[15:28:29][PedroLuCas874] executed "ensure "qb-spawn""
+[15:28:36][PedroLuCas874] executed "ensure "qb-multicharacter""
+[15:29:24][PedroLuCas874] executed "ensure "qb-spawn""
+[15:29:29][PedroLuCas874] executed "ensure "qb-multicharacter""
+[15:30:51][PedroLuCas874] executed "ensure "qb-spawn""
+[15:30:55][PedroLuCas874] executed "ensure "qb-multicharacter""
+[15:33:04][PedroLuCas874] executed "ensure "qb-spawn""
+[15:33:09][PedroLuCas874] executed "ensure "qb-multicharacter""

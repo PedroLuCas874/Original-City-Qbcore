@@ -1,28 +1,28 @@
 Config = {}
-Config.RequireJob = true                       -- do you need a mech job to use parts?
-Config.FuelResource = 'LegacyFuel'             -- supports any that has a GetFuel() and SetFuel() export
+Config.RequireJob = true                       -- é necessário ter um trabalho de mecânico para usar as peças?
+Config.FuelResource = 'LegacyFuel'             -- suporta qualquer que tenha uma exportação GetFuel() e SetFuel()
 
-Config.PaintTime = 5                           -- how long it takes to paint a vehicle in seconds
-Config.ColorFavorites = false                  -- add your own colors to the favorites menu (see bottom of const.lua)
+Config.PaintTime = 5                           -- quanto tempo leva para pintar um veículo em segundos
+Config.ColorFavorites = false                  -- adicione suas próprias cores ao menu de favoritos (veja no final de const.lua)
 
-Config.NitrousBoost = 1.8                      -- how much boost nitrous gives (want this above 1.0)
-Config.NitrousUsage = 0.1                      -- how much nitrous is used per frame while holding key
+Config.NitrousBoost = 1.8                      -- quanto de aumento o nitro dá (quer isso acima de 1.0) 
+Config.NitrousUsage = 0.1                      -- quanto de nitro é usado por frame enquanto segura a tecla
 
-Config.UseDistance = true                      -- enable/disable saving vehicle distance
-Config.UseDistanceDamage = true                -- damage vehicle engine health based on vehicle distance
-Config.UseWearableParts = true                 -- enable/disable wearable parts
-Config.WearablePartsChance = 1                 -- chance of wearable parts being damaged while driving if enabled
-Config.WearablePartsDamage = math.random(1, 2) -- how much wearable parts are damaged when damaged if enabled
-Config.DamageThreshold = 25                    -- how worn a part needs to be or below to apply an effect if enabled
-Config.WarningThreshold = 50                   -- how worn a part needs to be to show a warning color in toolbox if enabled
+Config.UseDistance = true                      -- habilitar/desabilitar a medição da distância percorrida pelo veículo
+Config.UseDistanceDamage = true                -- danificar a saúde do motor do veículo com base na distância percorrida
+Config.UseWearableParts = true                 -- habilitar/desabilitar peças desgastáveis
+Config.WearablePartsChance = 1                 -- chance de as peças desgastáveis serem danificadas enquanto dirige, se habilitado
+Config.WearablePartsDamage = math.random(1, 2) -- quanto as peças desgastáveis são danificadas quando danificadas, se habilitado
+Config.DamageThreshold = 25                    -- quão desgastada uma peça precisa estar ou abaixo para aplicar um efeito, se habilitado
+Config.WarningThreshold = 50                   -- quão desgastada uma peça precisa estar para mostrar um aviso de cor na caixa de ferramentas, se habilitado
 
-Config.MinimalMetersForDamage = {              -- unused if Config.UseDistanceDamage is false
+Config.MinimalMetersForDamage = {              -- não utilizado se Config.UseDistanceDamage for false
     { min = 5000,  max = 10000, damage = 10 },
     { min = 15000, max = 20000, damage = 20 },
     { min = 25000, max = 30000, damage = 30 },
 }
 
-Config.WearableParts = { -- unused if Config.UseWearableParts is false (feel free to add/remove parts)
+Config.WearableParts = { -- não utilizado se Config.UseWearableParts for false (sinta-se à vontade para adicionar/remover peças)
     radiator = { label = Lang:t('menu.radiator_repair'), maxValue = 100, repair = { steel = 2 } },
     axle = { label = Lang:t('menu.axle_repair'), maxValue = 100, repair = { aluminum = 2 } },
     brakes = { label = Lang:t('menu.brakes_repair'), maxValue = 100, repair = { copper = 2 } },
@@ -31,51 +31,51 @@ Config.WearableParts = { -- unused if Config.UseWearableParts is false (feel fre
 }
 
 Config.Shops = {
-    mechanic = { -- City location
+    paradise = { -- City location
         managed = true,
-        shopLabel = 'LS Customs',
+        shopLabel = 'Paradise Customs',
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
-        blipCoords = vector3(-346.02, -130.68, 39.02),
-        duty = vector3(-348.18, -134.55, 39.59),
-        stash = vector3(-346.02, -130.68, 39.02),
-        paint = vector3(-324.11, -147.11, 39.10),
+        blipCoords = vector3(-1598.6, -847.12, 9.99),
+        duty = vector3(-1593.03, -856.93, 10.1),
+        stash = vector3(-1594.31, -858.56, 10.1),
+        paint = vector3(-1624.28, -822.51, 10.07),
         vehicles = {
             withdraw = vector3(-369.30, -104.75, 38.38),
-            spawn = vector4(-369.65, -107.8, 38.65, 70.52),
+            spawn = vector4(-1593.89, -826.27, 9.98, 140.43),
             list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
         },
     },
     mechanic2 = { -- Harmony Location
         managed = true,
-        shopLabel = 'LS Customs',
+        shopLabel = 'Pedreiro Customs',
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
         blipCoords = vector3(1174.93, 2639.45, 37.75),
-        duty = vector3(1185.86, 2638.70, 38.93),
-        stash = vector3(1175.11, 2635.375, 37.78),
-        paint = vector3(1181.29, 2634.69, 37.80),
+        duty = vector3(51.61, -2582.39, 6.26),
+        stash = vvector3(46.47, -2576.75, 6.26),
+        --paint = vector3(1181.29, 2634.69, 37.80),
         vehicles = {
-            withdraw = vector3(1185.63, 2646.01, 37.91),
-            spawn = vector4(1188.18, 2657.56, 37.79, 316.74),
+            withdraw = vector3(42.42, -2561.49, 6.14),
+            spawn = vector4(40.64, -2558.57, 6.0, 255.54),
             list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
         },
     },
-    mechanic3 = { -- Airport Location
+    topsecret = { -- Airport Location
         managed = true,
         shopLabel = 'LS Customs',
         showBlip = true,
         blipSprite = 72,
         blipColor = 46,
-        blipCoords = vector3(-1154.92, -2006.41, 13.18),
-        duty = vector3(-1149.17, -1998.27, 13.91),
-        stash = vector3(-1146.40, -2002.05, 13.19),
-        paint = vector3(-1170.60, -2014.90, 13.23),
+        blipCoords = vector3(528.33, -183.99, 54.0),
+        duty = vector3(549.33, -195.92, 58.15),
+        stash = vector3(560.13, -181.38, 54.51),
+        paint = vector3(556.45, -166.14, 54.51),
         vehicles = {
-            withdraw = vector3(-1142.04, -1994.58, 13.26),
-            spawn = vector4(-1137.42, -1993.26, 13.14, 226.07),
+            withdraw = vector3(vector3(545.81, -161.75, 54.49)),
+            spawn = vector4(539.94, -156.66, 54.49, 86.57),
             list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
         },
     },
@@ -86,12 +86,12 @@ Config.Shops = {
         blipSprite = 72,
         blipColor = 46,
         blipCoords = vector3(-211.73, -1325.28, 30.89),
-        duty = vector3(-202.92, -1313.74, 31.70),
+        duty = vector3(-206.05, -1329.62, 34.89),
         stash = vector3(-199.58, -1314.65, 31.08),
-        paint = vector3(-202.42, -1322.16, 31.29),
+        paint = vector3(-199.06, -1324.33, 31.13),
         vehicles = {
             withdraw = vector3(0, 0, 0),
-            spawn = vector4(-370.51, -107.88, 38.35, 72.56),
+            spawn = vector4(-184.05, -1291.07, 31.3, 174.99),
             list = { 'flatbed', 'towtruck', 'minivan', 'blista' }
         },
     },

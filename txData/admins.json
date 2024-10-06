@@ -14,6 +14,11 @@
           "picture": "https://forum.cfx.re/user_avatar/forum.cfx.re/pedrolucas874/256/3357719_2.png",
           "profile": "https://forum.cfx.re/u/PedroLuCas874"
         }
+      },
+      "discord": {
+        "id": "340518160627269634",
+        "identifier": "discord:340518160627269634",
+        "data": {}
       }
     },
     "permissions": []

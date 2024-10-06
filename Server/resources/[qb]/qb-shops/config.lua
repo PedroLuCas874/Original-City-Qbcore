@@ -754,20 +754,20 @@ Config.Locations = {
 
     ['police'] = {
         ['label'] = 'Police Shop',
-        ['coords'] = vector4(461.8498, -981.0677, 30.6896, 91.5892),
+        ['coords'] = vector4(480.31, -996.67, 30.69, 92.3),
         ['ped'] = 'mp_m_securoguard_01',
         ['scenario'] = 'WORLD_HUMAN_COP_IDLES',
-        ['radius'] = 1.5,
+        ['radius'] = 1.6,
         ['targetIcon'] = 'fas fa-gun',
         ['targetLabel'] = 'Open Armory',
         ['products'] = Config.Products['police'],
-        ['delivery'] = vector4(459.0441, -1008.0366, 28.2627, 271.4695),
+        ['delivery'] = vector4(485.07, -999.19, 30.69, 177.81),
         ['requiredJob'] = 'police',
     },
 
     ['ambulance'] = {
         ['label'] = 'Ambulance Shop',
-        ['coords'] = vector4(309.93, -602.94, 43.29, 71.0820),
+        ['coords'] = vector4(-676.71, 334.67, 83.08, 177.27),
         ['ped'] = 's_m_m_doctor_01',
         ['scenario'] = 'WORLD_HUMAN_STAND_MOBILE',
         ['radius'] = 1.5,
@@ -778,33 +778,33 @@ Config.Locations = {
         ['requiredJob'] = 'ambulance'
     },
 
-    ['mechanic'] = {
+    ['paradise'] = {
         ['label'] = 'Mechanic Shop',
-        ['coords'] = vector4(-343.66, -140.78, 39.02, 0),
+        ['coords'] = vector4(-1608.1, -832.71, 10.07, 232.08),
         ['products'] = Config.Products['mechanic'],
-        ['delivery'] = vector4(-354.3936, -128.2882, 39.4307, 251.4931),
-        ['requiredJob'] = 'mechanic',
+        ['delivery'] = vector4(-1606.89, -836.99, 10.27, 128.18),
+        ['requiredJob'] = 'paradise',
     },
 
     ['mechanic2'] = {
         ['label'] = 'Mechanic Shop',
-        ['coords'] = vector4(1189.36, 2641.00, 38.44, 0),
+        ['coords'] = vector4(61.05, -2582.34, 6.26, 172.15),
         ['products'] = Config.Products['mechanic'],
-        ['delivery'] = vector4(1189.9852, 2651.1873, 37.8351, 317.7137),
+        ['delivery'] = vector4(62.05, -2580.64, 6.26, 271.27),
         ['requiredJob'] = 'mechanic2'
     },
 
-    ['mechanic3'] = {
+    ['topsecret'] = {
         ['label'] = 'Mechanic Shop',
-        ['coords'] = vector4(-1156.56, -1999.85, 13.19, 0),
+        ['coords'] = vector4(559.16, -172.19, 54.51, 356.33),
         ['products'] = Config.Products['mechanic'],
-        ['delivery'] = vector4(-1131.9661, -1972.0144, 13.1603, 358.8637),
-        ['requiredJob'] = 'mechanic3'
+        ['delivery'] = vector4(560.92, -174.37, 54.51, 88.79),
+        ['requiredJob'] = 'topsecret'
     },
 
     ['bennys'] = {
         ['label'] = 'Mechanic Shop',
-        ['coords'] = vector4(-195.80, -1318.24, 31.08, 0),
+        ['coords'] = vector4(-215.24, -1311.98, 30.89, 2.09),
         ['products'] = Config.Products['mechanic'],
         ['delivery'] = vector4(-232.5028, -1311.7202, 31.2960, 180.3716),
         ['requiredJob'] = 'bennys'

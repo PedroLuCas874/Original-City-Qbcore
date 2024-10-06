@@ -8,7 +8,7 @@ Config.WhitelistedVehicles = {}
 Config.PoliceHelicopter = 'POLMAV'
 Config.FuelResource = 'LegacyFuel' -- supports any that has a GetFuel() and SetFuel() export
 
-Config.AmmoLabels = {
+Config.AmmoLabels = { -- o tipo de munição e seu rótulo quando dropada
     AMMO_PISTOL = '9x19mm parabellum bullet',
     AMMO_SMG = '9x19mm parabellum bullet',
     AMMO_RIFLE = '7.62x39mm bullet',
@@ -17,8 +17,11 @@ Config.AmmoLabels = {
     AMMO_SNIPER = 'Large caliber bullet',
 }
 
-Config.Objects = {
-    cone = { model = `prop_roadcone02a`, freeze = false },
+Config.Objects = { -- itens disponíveis para a polícia spawnar
+--  ["cone"] = { -- https://gta-objects.xyz/
+--  model = `prop_roadcone02a`, -- hash do objeto
+--  freeze = false -- ativar/desativar a fixação do objeto no local
+    cone = { model = `prop_roadcone02a`, freeze = false },  
     barrier = { model = `prop_barrier_work06a`, freeze = true },
     roadsign = { model = `prop_snow_sign_road_06g`, freeze = true },
     tent = { model = `prop_gazebo_03`, freeze = true },
@@ -26,44 +29,39 @@ Config.Objects = {
 }
 
 Config.Locations = {
-    duty = {
-        vector3(440.085, -974.924, 30.689),
-        vector3(-449.811, 6012.909, 31.815),
+    duty = { -- locais para iniciar/encerrar o serviço
+        vector3(442.71, -982.01, 30.69),
     },
-    vehicle = {
-        vector4(448.159, -1017.41, 28.562, 90.654),
-        vector4(471.13, -1024.05, 28.17, 274.5),
-        vector4(-455.39, 6002.02, 31.34, 87.93),
+    vehicle = { -- locais para retirar veículos
+        vector4(457.57, -976.99, 25.7, 178.34),
     },
-    stash = {
-        vector3(453.075, -980.124, 30.889),
+    stash = { -- locais para acessar o depósito
+        vector3(480.88, -995.23, 30.69),
     },
-    impound = {
-        vector3(436.68, -1007.42, 27.32),
-        vector3(-436.14, 5982.63, 31.34),
+    impound = { -- locais para acessar o pátio de apreensão
+        vector3(455.43, -1019.72, 28.33),
     },
-    helicopter = {
+    helicopter = { -- locais para retirar Heli
         vector4(449.168, -981.325, 43.691, 87.234),
-        vector4(-475.43, 5988.353, 31.716, 31.34),
     },
-    trash = {
+    trash = { -- locais para adicionar itens ao lixo
         vector3(439.0907, -976.746, 30.776),
     },
-    fingerprint = {
+    fingerprint = { -- locais para acessar o scanner de impressões digitais
         vector3(460.9667, -989.180, 24.92),
     },
-    evidence = {
-        vector3(442.1722, -996.067, 30.689),
-        vector3(451.7031, -973.232, 30.689),
-        vector3(455.1456, -985.462, 30.689),
+    evidence = { -- locais para acessar os armários de provas
+        vector3(475.17, -996.49, 26.27),
+        vector3(472.53, -994.11, 26.27),
+        vector3(472.53, -996.69, 26.27),
     },
-    stations = {
-        { label = 'Police Station',        coords = vector4(428.23, -984.28, 29.76, 3.5) },
-        { label = 'Prison',                coords = vector4(1845.903, 2585.873, 45.672, 272.249) },
-        { label = 'Police Station Paleto', coords = vector4(-451.55, 6014.25, 31.716, 223.81) },
+    stations = { { -- locais para os ícones e etiquetas no mapa
+        { label = 'Delegacia Original City',      coords = vector4(428.23, -984.28, 29.76, 3.5) },
+        { label = 'Prisão Original City',         coords = vector4(1845.903, 2585.873, 45.672, 272.249) },
     },
 }
 
+}
 Config.SecurityCameras = {
     hideradar = false,
     cameras = {
@@ -104,7 +102,7 @@ Config.SecurityCameras = {
     },
 }
 
-Config.Radars = {
+Config.Radars = { -- localizações dos radares que verificam placas sinalizadas
     vector4(-623.44421386719, -823.08361816406, 25.25704574585, 145.0),
     vector4(-652.44421386719, -854.08361816406, 24.55704574585, 325.0),
     vector4(1623.0114746094, 1068.9924316406, 80.903594970703, 84.0),
@@ -118,7 +116,7 @@ Config.Radars = {
     vector4(-823.3688, -1146.980, 8.0, 300.0),
 }
 
-Config.CarItems = {
+Config.CarItems = { -- itens para adicionar ao porta-malas ao spawnar um veículo policial
     [1] = {name = "heavyarmor", amount = 2, info = {}, type = "item", slot = 1,},
     [2] = {name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2,},
     [3] = {name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3,},
@@ -139,9 +137,9 @@ Config.AuthorizedVehicles = {
 }
 
 Config.VehicleSettings = {
-    ['car1'] = {          --- Model name
+    ['car1'] = {          --- Nome do modelo
         ['extras'] = {
-            ['1'] = true, -- on/off
+            ['1'] = true, -- ativar/desativar o extra do veículo ao spawnar
             ['2'] = true,
             ['3'] = true,
             ['4'] = true,
@@ -155,7 +153,7 @@ Config.VehicleSettings = {
             ['12'] = true,
             ['13'] = true,
         },
-        ['livery'] = 1,
+        ['livery'] = 1, -- número da pintura a ser aplicada ao spawnar
     },
     ['car2'] = {
         ['extras'] = {

@@ -1,18 +1,9 @@
 
 ================================================================
-======== txAdmin v6.0.2 atop fxserver 7290 Starting - 30/09/2024 02:03:18
+======== txAdmin v6.0.2 atop fxserver 7290 Starting - 06/10/2024 13:30:24
 ================================================================
-[02:03:53][PedroLuCas874] created admins file
-[02:05:00][PedroLuCas874] Changing global settings via setup stepper and started Deployer.
-[02:05:11][PedroLuCas874] Setting recipe.
-[02:06:12][PedroLuCas874] Running recipe.
-[02:11:17][PedroLuCas874] Completed and committed server deploy.
 
 ================================================================
-======== txAdmin v6.0.2 atop fxserver 7290 Starting - 30/09/2024 02:20:46
+======== Log Rotated - 06/10/2024 13:30:24                      
 ================================================================
-[02:22:25][PedroLuCas874] logged in from 127.0.0.1 via citizenfx
-
-================================================================
-======== txAdmin v6.0.2 atop fxserver 7290 Starting - 30/09/2024 02:25:58
-================================================================
+[13:33:05][PedroLuCas874] logged in via in-game ui

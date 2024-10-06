@@ -74,8 +74,8 @@ QBShared.Jobs = {
 			['4'] = { name = 'Manager', isboss = true, payment = 150 },
 		},
 	},
-	mechanic = {
-		label = 'LS Customs',
+	paradise = {
+		label = 'Paradise Customs',
 		type = 'mechanic',
 		defaultDuty = true,
 		offDutyPay = false,
@@ -88,20 +88,20 @@ QBShared.Jobs = {
 		},
 	},
 	mechanic2 = {
-		label = 'LS Customs',
+		label = 'Pedreiro Customs',
 		type = 'mechanic',
 		defaultDuty = true,
 		offDutyPay = false,
 		grades = {
-			['0'] = { name = 'Recruit', payment = 50 },
-			['1'] = { name = 'Novice', payment = 75 },
-			['2'] = { name = 'Experienced', payment = 100 },
-			['3'] = { name = 'Advanced', payment = 125 },
-			['4'] = { name = 'Manager', isboss = true, payment = 150 },
+			['0'] = { name = 'Recruta', payment = 50 },
+			['1'] = { name = 'Novato', payment = 75 },
+			['2'] = { name = 'Experiente', payment = 100 },
+			['3'] = { name = 'Gerente', payment = 125 },
+			['4'] = { name = 'Dono', isboss = true, payment = 150 },
 		},
 	},
-	mechanic3 = {
-		label = 'LS Customs',
+	topsecret = {
+		label = 'Top Secret Custons',
 		type = 'mechanic',
 		defaultDuty = true,
 		offDutyPay = false,
